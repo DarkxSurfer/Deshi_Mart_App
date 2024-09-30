@@ -130,18 +130,6 @@ class _EnterNumberScreenState extends State<EnterNumberScreen> {
                                     return null;
                                   },
                                 ),
-                                const SizedBox(height: 20),
-                                ElevatedButton(
-                                  onPressed: _submitPhoneNumber,
-                                  style: ElevatedButton.styleFrom(
-                                    padding: const EdgeInsets.symmetric(
-                                        horizontal: 40, vertical: 15),
-                                    shape: RoundedRectangleBorder(
-                                      borderRadius: BorderRadius.circular(20),
-                                    ),
-                                  ),
-                                  child: const Text('Submit'),
-                                ),
                               ],
                             ),
                           ),
@@ -166,7 +154,10 @@ class _EnterNumberScreenState extends State<EnterNumberScreen> {
               // Proceed with phone number submission, OTP sending, etc.
             }
           },
-          child: const Icon(Icons.arrow_forward), // Icon for the FAB
+          child: const Icon(
+            Icons.arrow_forward,
+            color: Colors.white,
+          ), // Icon for the FAB
         ));
   }
 }

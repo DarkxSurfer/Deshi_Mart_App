@@ -2,7 +2,9 @@ import 'dart:ui';
 
 import 'package:deshi_mart_app/src/Utils/Constant/colors.dart';
 import 'package:deshi_mart_app/src/Utils/Constant/image_strings.dart';
+import 'package:deshi_mart_app/src/view/Home/home_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class OtpScreen extends StatefulWidget {
   const OtpScreen({super.key});
@@ -18,6 +20,7 @@ class _OtpScreenState extends State<OtpScreen> {
   void _submitOtp() {
     if (_otpFormKey.currentState!.validate()) {
       // Proceed with OTP verification
+      Get.to(const HomeScreen());
       print('OTP entered: ${_otpController.text}');
       // Navigate to the next screen, e.g., home or success screen
     }
