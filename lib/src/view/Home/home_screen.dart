@@ -79,7 +79,6 @@ class HomeScreen extends StatelessWidget {
                 // SizedBox(height: height * 0.02),
                 FruitsListGridWidget(products: provider.itemListThree),
                 SizedBox(height: height * 0.02),
-                ProductTitle(title: '', onPressed: (){}),
 
 
               ],

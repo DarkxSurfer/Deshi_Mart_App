@@ -80,6 +80,7 @@ flutter:
     - assets/logos/
     - assets/icons/
     - assets/Fruits/
+    - assets/Animation/
 
   #   - images/a_dot_ham.jpeg
 

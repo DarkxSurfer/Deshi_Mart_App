@@ -44,23 +44,16 @@ class GridCard extends StatelessWidget {
                   Text(product.unitPrice,style: const TextStyle(fontWeight: FontWeight.w600,fontSize: 20)),
                   IconButton(
                     onPressed: () {
-                      value.favouriteSelected(product.productName);
+                      value.favouriteSelected(product);
                     },
-                    icon:   IconButton(
-                        onPressed: () {
-                          value.favouriteSelected(product.productName);
-                        },
-                        icon: Icon(
-                          value.selectedFavourites.contains(product.productName)
-                              ? Icons.favorite
-                              : Icons.favorite_outline,
-                        ),
-                        color: value.selectedFavourites.contains(product.productName)
-                            ? AColors.green : Colors.black
+                    icon: Icon(
+                      value.selectedFavourites.contains(product)
+                          ? Icons.favorite
+                          : Icons.favorite_outline,
                     ),
-                    // color: value.selectedFavourites.contains(item.productName)
-                    //     ? Colors.redAccent
-                    //     : Colors.black,
+                    color: value.selectedFavourites.contains(product)
+                        ? AColors.green
+                        : Colors.black,
                   ),
 
                 ],

@@ -44,7 +44,7 @@ class _MyAppState extends State<BottomNavigationMenu> {
             /// esko jab ap remove kro ge to icons oper nichy hona shore ho jai gy
               type: BottomNavigationBarType.fixed, // Add this line
               selectedItemColor: AColors.green,
-              unselectedItemColor: Colors.black,
+              unselectedItemColor: Colors.grey,
               iconSize: 30,
               selectedLabelStyle: const TextStyle(fontSize: 15,fontWeight: FontWeight.bold),
               unselectedLabelStyle: const TextStyle(
