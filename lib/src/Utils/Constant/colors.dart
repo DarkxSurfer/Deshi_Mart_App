@@ -6,4 +6,5 @@ class AColors {
   static Color green = const Color(0xff53B175);
   static Color greenLight = const Color(0xffB1D199);
   static Color yellow = const Color(0xffFFB35A);
+  static Color textLight = const Color(0xff7c7c7c);
 }

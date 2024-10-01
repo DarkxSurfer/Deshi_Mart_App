@@ -97,7 +97,7 @@ class LoginScreen extends StatelessWidget {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    const Text('Dont have an account? ',
+                    const Text("Don't have an account?",
                         style: TextStyle(color: Color(0xff868D95))),
                     GestureDetector(
                       onTap: () {
