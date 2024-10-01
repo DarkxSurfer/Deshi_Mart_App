@@ -2,6 +2,7 @@
 const String logoWhite = "assets/logos/logo-white.png";
 const String logocolor = "assets/logos/logo-color.png";
 const String phoneLoginBg = "assets/images/signin-bg.png";
+const String mapImage = "assets/images/map.png";
 
 //Icons
 const String carrotIcon = "assets/icons/carrot.png";
