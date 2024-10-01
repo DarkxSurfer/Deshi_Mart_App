@@ -1,7 +1,7 @@
 import 'package:deshi_mart_app/src/Utils/Constant/image_strings.dart';
 import 'package:deshi_mart_app/src/Widgets/custom_textform.dart';
 import 'package:deshi_mart_app/src/common/ui_helpers.dart';
-import 'package:deshi_mart_app/src/view/Home/home_screen.dart';
+import 'package:deshi_mart_app/src/view/SelectLocation/select_location_screen.dart';
 import 'package:deshi_mart_app/src/view/SignUp/signup_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -75,7 +75,7 @@ class LoginScreen extends StatelessWidget {
                   width: width,
                   child: ElevatedButton(
                     onPressed: () {
-                      Get.offAll(() => const HomeScreen());
+                      Get.offAll(() => const SelectLocationScreen());
                       // _signInUser(context);
                     },
                     style: ElevatedButton.styleFrom(
