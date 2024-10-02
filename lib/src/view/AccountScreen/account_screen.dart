@@ -1,4 +1,5 @@
 import 'package:deshi_mart_app/src/Utils/Constant/colors.dart';
+import 'package:deshi_mart_app/src/view/Login/login_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
@@ -79,7 +80,9 @@ class AccountScreen extends StatelessWidget {
             height: height * 0.05,
             width: width * 0.7,
             child: ElevatedButton(
-              onPressed: () {},
+              onPressed: () {
+                Get.offAll(() => LoginScreen());
+              },
               style: ElevatedButton.styleFrom(
                 backgroundColor: Colors.white.withOpacity(0.7),
                 shape: RoundedRectangleBorder(

@@ -76,22 +76,24 @@ class CartScreen extends StatelessWidget {
         builder: (context, value, child) {
           return value.selectedFavourites.isNotEmpty
               ? Container(
-                  margin: EdgeInsets.symmetric(
-                      horizontal: width * 0.12, vertical: height * 0.05),
+                  margin: EdgeInsets.only(
+                      left: width * 0.12, bottom: height * 0.02,right: width*0.12),
                   height: height * 0.06,
                   width: width * 0.05,
-                  child: ElevatedButton(
-                      onPressed: () {
-                        StripeServices.instance.makePayment();
-                      },
-                      style: ElevatedButton.styleFrom(backgroundColor: AColors.green,
-                          shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(12))),
-                      child: Text('Go to Checkout   ${value.getTotalPrice()}',
-                          style: const TextStyle(
-                              fontSize: 18,
-                              fontWeight: FontWeight.bold,
-                              color: Colors.white))))
+                  child: SizedBox(
+                    child: ElevatedButton (
+                        onPressed: ()  {
+                           StripeServices.instance.makePayment();
+                        },
+                        style: ElevatedButton.styleFrom(backgroundColor: AColors.green,
+                            shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(12))),
+                        child: Text('Go to Checkout   ${value.getTotalPrice()}',
+                            style: const TextStyle(
+                                fontSize: 18,
+                                fontWeight: FontWeight.bold,
+                                color: Colors.white))),
+                  ))
               : const SizedBox(); // Empty widget if no items in cart
         },
       ),

@@ -5,11 +5,14 @@ import 'package:dio/dio.dart';
 import 'package:flutter_stripe/flutter_stripe.dart';
 
 class StripeServices {
-  FavouriteItem favouriteItem = FavouriteItem();
   StripeServices._();
 
   static final StripeServices instance = StripeServices._();
+
+  /// Make Payment Function
   Future<void> makePayment() async {
+    FavouriteItem favouriteItem = FavouriteItem();
+
     try {
       String? paymentIntentClientSecret = await _createPaymentIntent(20,'usd'); // Amount in dollars, currency in lowercase
       if (paymentIntentClientSecret == null) return;
@@ -24,6 +27,7 @@ class StripeServices {
     }
   }
 
+  /// crete Payment intent
   Future<String?> _createPaymentIntent(int amount, String currency) async {
     try {
       final Dio dio = Dio();
@@ -59,6 +63,8 @@ class StripeServices {
       return null;
     }
   }
+
+  /// Process Payment
   Future<void> _processPayment() async{
 
     try{
@@ -69,6 +75,7 @@ class StripeServices {
     }
   }
 
+  /// CalculatorAmount
   String _calculatorAmount(int amount) {
     final calculatedAmount = amount * 100; // Convert dollars to cents
     return calculatedAmount.toString();

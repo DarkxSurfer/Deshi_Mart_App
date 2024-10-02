@@ -1,8 +1,9 @@
 import 'package:deshi_mart_app/firebase_options.dart';
-import 'package:deshi_mart_app/src/Widgets/BottomNavigationMenu/bottom_navigation_menu.dart';
 import 'package:deshi_mart_app/src/common/Provider/provider_state.dart';
 import 'package:deshi_mart_app/src/services/Stripe%20Service/stripe_key.dart';
 import 'package:deshi_mart_app/src/services/auth/auth_service.dart';
+import 'package:deshi_mart_app/src/view/Admin%20Login/admin_login.dart';
+import 'package:deshi_mart_app/src/view/Login/login_screen.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -41,14 +42,8 @@ class MyApp extends StatelessWidget {
           )
         ],
         child:  GetMaterialApp(
-          theme: ThemeData(
-            appBarTheme: const AppBarTheme(
-              color: Colors.white, // Set theme color to match the AppBar
-              elevation: 0, // Remove shadow and elevation
-            ),
-          ),
           debugShowCheckedModeBanner: false,
-          home:  BottomNavigationMenu(),
+          home:   AdminLoginScreen(),
         ));
   }
 }

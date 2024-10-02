@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class CustomTextform extends StatelessWidget {
-  const CustomTextform(
+class CustomTextForm extends StatelessWidget {
+  const CustomTextForm(
       {super.key,
       this.controller,
       this.hintText,
@@ -10,7 +10,7 @@ class CustomTextform extends StatelessWidget {
       required this.obscureValue});
 
   final controller;
-  final hintText;
+  final  hintText;
   final prefixIcon;
   final suffixIcon;
   final bool obscureValue;
@@ -33,11 +33,11 @@ class CustomTextform extends StatelessWidget {
         hintStyle: const TextStyle(color: Colors.grey),
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(15),
-          borderSide: const BorderSide(width: 2, color: Color(0xffE9F1FF)),
+          borderSide: const BorderSide(color: Colors.grey),
         ),
         enabledBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(12),
-          borderSide: const BorderSide(width: 2, color: Color(0xffE9F1FF)),
+          borderSide:  BorderSide(color: Colors.grey.withOpacity(0.5)),
         ),
       ),
     );

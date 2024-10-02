@@ -11,7 +11,7 @@ class PhoneLoginScreen extends StatefulWidget {
   const PhoneLoginScreen({super.key});
 
   @override
-  _PhoneLoginScreenState createState() => _PhoneLoginScreenState();
+   createState() => _PhoneLoginScreenState();
 }
 
 class _PhoneLoginScreenState extends State<PhoneLoginScreen> {
@@ -37,12 +37,12 @@ class _PhoneLoginScreenState extends State<PhoneLoginScreen> {
               ),
             ),
             Padding(
-              padding: const EdgeInsets.all(12.0),
+              padding:  EdgeInsets.symmetric(vertical: height *0.02,horizontal: width *0.04),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   const Text(
-                    "Get your groceries \nwith nectar",
+                    "Get your groceries\nwith nectar",
                     style: TextStyle(
                         fontSize: 20,
                         color: Colors.black,
@@ -52,7 +52,6 @@ class _PhoneLoginScreenState extends State<PhoneLoginScreen> {
                     onTap: () => Get.to(const EnterNumberScreen()),
                     child: Container(
                       color: Colors.white,
-                      height: 60,
                       margin: const EdgeInsets.only(top: 20),
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
@@ -75,10 +74,11 @@ class _PhoneLoginScreenState extends State<PhoneLoginScreen> {
                             color: Colors.grey.withOpacity(0.9),
                             fontWeight: FontWeight.w500)),
                   ),
-                  verticalSpaceSmall,
+                  verticalSpaceMedium,
                   Center(
                     child: SizedBox(
-                      height: 60,
+                      width: double.infinity,
+                      height: 50,
                       child: ElevatedButton.icon(
                         style: ElevatedButton.styleFrom(
                           foregroundColor: Colors.white,
@@ -106,7 +106,8 @@ class _PhoneLoginScreenState extends State<PhoneLoginScreen> {
                   verticalSpaceSmall,
                   Center(
                     child: SizedBox(
-                      height: 60,
+                      width: double.infinity,
+                      height: 50,
                       child: ElevatedButton.icon(
                         style: ElevatedButton.styleFrom(
                           foregroundColor: Colors.white,
