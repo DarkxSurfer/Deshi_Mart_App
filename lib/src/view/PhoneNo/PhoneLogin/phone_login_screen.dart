@@ -1,6 +1,7 @@
 import 'package:country_code_picker/country_code_picker.dart';
 import 'package:deshi_mart_app/src/Utils/Constant/image_strings.dart';
 import 'package:deshi_mart_app/src/common/ui_helpers.dart';
+import 'package:deshi_mart_app/src/view/Login/login_screen.dart';
 import 'package:deshi_mart_app/src/view/PhoneNo/EnterNumber/enter_number_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -18,7 +19,6 @@ class _PhoneLoginScreenState extends State<PhoneLoginScreen> {
   Widget build(BuildContext context) {
     final height = MediaQuery.of(context).size.height;
     final width = MediaQuery.of(context).size.width;
-    final theme = Theme.of(context);
 
     return Scaffold(
       backgroundColor: Colors.white,
@@ -98,7 +98,7 @@ class _PhoneLoginScreenState extends State<PhoneLoginScreen> {
                         ), // Facebook icon
                         label: const Text('Continue with Google'),
                         onPressed: () {
-                          // Handle Facebook login
+                          Get.to(LoginScreen());
                         },
                       ),
                     ),

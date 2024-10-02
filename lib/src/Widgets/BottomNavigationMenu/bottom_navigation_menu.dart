@@ -1,9 +1,11 @@
 import 'package:deshi_mart_app/src/Utils/Constant/colors.dart';
+import 'package:deshi_mart_app/src/view/AccountScreen/account_screen.dart';
 import 'package:deshi_mart_app/src/view/cart/cart_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:provider/provider.dart';
 import '../../common/Provider/provider_state.dart';
+import '../../view/Favourite/favourite_screen.dart';
 import '../../view/Home/home_screen.dart';
 
 
@@ -22,8 +24,8 @@ class _MyAppState extends State<BottomNavigationMenu> {
     const HomeScreen(),
     Container(color: Colors.blue),
     const CartScreen(),
-    Container(color: Colors.purple),
-    Container(color: Colors.green),
+    const FavouriteScreen(),
+    const AccountScreen()
   ];
 
   void onTabTapped(int index) {

@@ -8,7 +8,8 @@ import '../auth/auth_service.dart';
 void registerUser(BuildContext context, String email, String password,
     String username) async {
   if (password.length < 6) {
-    _showSnackBar(context, 'Password must be at least 6 characters long!');
+    _showSnackBar(
+        context, 'Error', 'Password must be at least 6 characters long!');
     return;
   }
 
@@ -21,11 +22,11 @@ void registerUser(BuildContext context, String email, String password,
     await authService.createUserWithEmailAndPassword(email, password, username);
     Navigator.of(context).pop(); // Close loading indicator
 
-    _showSnackBar(context, 'Registration successful!');
+    _showSnackBar(context, 'Welcome!', 'Registration successful!');
     Get.offAll(() => const AuthGate());
   } catch (e) {
     Navigator.of(context).pop(); // Close loading indicator
-    _showSnackBar(context, 'Registration failed: ${e.toString()}');
+    _showSnackBar(context, 'Error', 'Registration failed: ${e.toString()}');
   }
 }
 
@@ -39,11 +40,11 @@ void signOut(BuildContext context) async {
     await authService.signOut();
     Navigator.of(context).pop(); // Close loading indicator
 
-    _showSnackBar(context, 'Signed out successfully!');
+    _showSnackBar(context, ':(', 'Signed out successfully!');
     Get.offAll(() => const AuthGate()); // Optionally navigate after sign out
   } catch (e) {
     Navigator.of(context).pop(); // Close loading indicator
-    _showSnackBar(context, 'Sign out failed: ${e.toString()}');
+    _showSnackBar(context, 'Error', 'Sign out failed: ${e.toString()}');
   }
 }
 
@@ -57,11 +58,11 @@ void signIn(BuildContext context, String email, String password) async {
     await authService.signInWithEmailAndPassword(email, password);
     Navigator.of(context).pop(); // Close loading indicator
 
-    _showSnackBar(context, 'Signed in successfully!');
+    _showSnackBar(context, 'Welcome Back!', 'Signed in successfully!');
     Get.offAll(() => const AuthGate());
   } catch (e) {
     Navigator.of(context).pop(); // Close loading indicator
-    _showSnackBar(context, 'Sign in failed: ${e.toString()}');
+    _showSnackBar(context, 'Error', 'Sign in failed: ${e.toString()}');
   }
 }
 
@@ -77,8 +78,9 @@ void _showLoadingIndicator(BuildContext context) {
 }
 
 // Helper function to show Snackbar
-void _showSnackBar(BuildContext context, String message) {
-  ScaffoldMessenger.of(context).showSnackBar(
-    SnackBar(content: Text(message)),
-  );
+void _showSnackBar(BuildContext context, String message, String title) {
+  Get.snackbar(title, message);
+  // ScaffoldMessenger.of(context).showSnackBar(
+  //   SnackBar(content: Text(message)),
+  // );
 }

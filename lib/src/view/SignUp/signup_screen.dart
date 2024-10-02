@@ -8,6 +8,8 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import '../../services/firebase/signin_func.dart';
+
 class SignupScreen extends StatelessWidget {
   SignupScreen({super.key});
   final TextEditingController emailController = TextEditingController();
@@ -116,8 +118,8 @@ class SignupScreen extends StatelessWidget {
                   width: width,
                   child: ElevatedButton(
                     onPressed: () {
-                      Get.offAll(() => const HomeScreen());
-                      // _signInUser(context);
+                      registerUser(context, emailController.text,
+                          passController.text, usernameController.text);
                     },
                     style: ElevatedButton.styleFrom(
                       backgroundColor: const Color(0xff53B175),
