@@ -1,5 +1,5 @@
-import 'package:deshi_mart_app/src/view/Home/home_screen.dart';
-import 'package:deshi_mart_app/src/view/Splash/splash_screen.dart';
+import 'package:deshi_mart_app/src/Widgets/BottomNavigationMenu/bottom%20_navigation_menu.dart';
+import 'package:deshi_mart_app/src/view/Welcome/welcome_screen.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
@@ -25,10 +25,10 @@ class AuthGate extends StatelessWidget {
 
           // If the user is authenticated, show the main navigation
           if (snapshot.hasData) {
-            return const HomeScreen();
+            return const BottomNavigationMenu();
           } else {
             // If the user is not authenticated, show the login screen
-            return const SplashScreen();
+            return const WelcomeScreen();
           }
         },
       ),

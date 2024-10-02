@@ -1,5 +1,5 @@
 import 'package:deshi_mart_app/src/Utils/Constant/image_strings.dart';
-import 'package:deshi_mart_app/src/view/Home/home_screen.dart';
+import 'package:deshi_mart_app/src/view/PhoneNo/PhoneLogin/phone_login_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -98,8 +98,7 @@ class _SelectLocationScreenState extends State<SelectLocationScreen> {
               width: width,
               child: ElevatedButton(
                 onPressed: () {
-                  Get.offAll(() => const HomeScreen());
-                  // _signInUser(context);
+                  Get.offAll(() => const PhoneLoginScreen());
                 },
                 style: ElevatedButton.styleFrom(
                   backgroundColor: const Color(0xff53B175),
@@ -108,7 +107,7 @@ class _SelectLocationScreenState extends State<SelectLocationScreen> {
                   ),
                 ),
                 child: const Text(
-                  'Sign In',
+                  'Submit',
                   style: TextStyle(
                       color: Colors.white,
                       fontSize: 20,

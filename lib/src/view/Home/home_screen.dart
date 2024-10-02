@@ -14,14 +14,15 @@ class HomeScreen extends StatelessWidget {
     final height = MediaQuery.of(context).size.height;
     final width = MediaQuery.of(context).size.width;
     // final theme = Theme.of(context);
-    return  GestureDetector(
-      onTap: (){
+    return GestureDetector(
+      onTap: () {
         FocusScope.of(context).unfocus();
       },
       child: Scaffold(
         body: SingleChildScrollView(
           child: Padding(
-            padding:  EdgeInsets.symmetric(horizontal: width * 0.05,vertical: height * 0.08),
+            padding: EdgeInsets.symmetric(
+                horizontal: width * 0.05, vertical: height * 0.08),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -29,60 +30,70 @@ class HomeScreen extends StatelessWidget {
                 Row(
                   children: [
                     Image.asset('assets/icons/carrot.png'),
-                     SizedBox(width: width * 0.15),
-                     const Icon(Icons.location_on,size: 33),
-                    const Text('Karachi, Pakistan',style: TextStyle(fontSize: 17,fontWeight: FontWeight.w600))
+                    SizedBox(width: width * 0.15),
+                    const Icon(Icons.location_on, size: 33),
+                    const Text('Karachi, Pakistan',
+                        style: TextStyle(
+                            fontSize: 17, fontWeight: FontWeight.w600))
                   ],
                 ),
                 SizedBox(height: height * 0.04),
+
                 /// Search Store
                 TextFormField(
                   decoration: InputDecoration(
-                    hintText: 'Search Store',
-                    hintStyle: TextStyle(color: Colors.black.withOpacity(0.4)),
-                    filled: true,
-                    fillColor: Colors.grey.withOpacity(0.2),
-                    suffixIcon: Icon(Icons.search,size: 28,color: AColors.green),
-                    focusedBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(16),
-          
-                      borderSide: BorderSide(color:Colors.grey.withOpacity(0.2),)
-                    ),
+                      hintText: 'Search Store',
+                      hintStyle:
+                          TextStyle(color: Colors.black.withOpacity(0.4)),
+                      filled: true,
+                      fillColor: Colors.grey.withOpacity(0.2),
+                      suffixIcon:
+                          Icon(Icons.search, size: 28, color: AColors.green),
+                      focusedBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(16),
+                          borderSide: BorderSide(
+                            color: Colors.grey.withOpacity(0.2),
+                          )),
                       enabledBorder: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(16),
-                    borderSide: BorderSide(color:Colors.grey.withOpacity(0.2),)
-                )
-                  ),
+                          borderSide: BorderSide(
+                            color: Colors.grey.withOpacity(0.2),
+                          ))),
                 ),
-                SizedBox(height: height*0.03),
+                SizedBox(height: height * 0.03),
+
                 /// Banners
                 Container(
                   height: height * 0.15,
-                  width:  width,
+                  width: width,
                   decoration: BoxDecoration(
-                    // color: Colors.blue,
-                    borderRadius: BorderRadius.circular(10),
-                    image: const DecorationImage(image: AssetImage('assets/images/banner.png'),fit: BoxFit.cover)
-                  ),
-                  // child: const Text('pl'),
+                      // color: Colors.blue,
+                      borderRadius: BorderRadius.circular(10),
+                      image: const DecorationImage(
+                          image: AssetImage('assets/images/banner.png'),
+                          fit: BoxFit.cover)),
                 ),
-          
+
                 SizedBox(height: height * 0.03),
-               /// Offer see All
-                ProductTitle(title: 'Exclusive Offer', onPressed: (){}),
-                FruitsListGridWidget(products: provider.itemListOne),
+
+                /// Offer see All
+                ProductTitle(title: 'Exclusive Offer', onPressed: () {}),
+                FruitsListGridWidget(
+                  products: provider.itemListOne,
+                ),
                 SizedBox(height: height * 0.02),
-                ProductTitle(title: 'Best Selling', onPressed: (){}),
-                FruitsListGridWidget(products: provider.itemListTwo),
+                ProductTitle(title: 'Best Selling', onPressed: () {}),
+                FruitsListGridWidget(
+                  products: provider.itemListTwo,
+                ),
                 SizedBox(height: height * 0.02),
-                ProductTitle(title: 'Best Offer', onPressed: (){}),
+                ProductTitle(title: 'Best Offer', onPressed: () {}),
                 // SizedBox(height: height * 0.02),
-                FruitsListGridWidget(products: provider.itemListThree),
+                FruitsListGridWidget(
+                  products: provider.itemListThree,
+                ),
                 SizedBox(height: height * 0.02),
-
-
               ],
-
             ),
           ),
         ),
@@ -90,8 +101,6 @@ class HomeScreen extends StatelessWidget {
     );
   }
 }
-
-
 
 // GridView.builder(
 // shrinkWrap: true,

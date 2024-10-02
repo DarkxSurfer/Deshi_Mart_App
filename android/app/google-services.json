@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "274124008516",
+    "project_id": "test-firebase-6bbbd",
+    "storage_bucket": "test-firebase-6bbbd.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:274124008516:android:182e0dab1f54a72d6f2011",
+        "android_client_info": {
+          "package_name": "com.example.deshi_mart_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCUJRSuoIgrCc7tr4exCM7ElHh1zIuAcMo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,15 +1,15 @@
+import 'package:deshi_mart_app/src/Models/Detail/detail_screen_model.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 import '../../view/Home/Item Models/fruits_model_list.dart';
 import 'grid_view_card.dart';
 
 class FruitsListGridWidget extends StatelessWidget {
-  const FruitsListGridWidget({
-    super.key, required this.products,
-
-  });
+  const FruitsListGridWidget({super.key, required this.products, this.onTap});
 
   final List<ItemModel> products;
+  final onTap;
 
   @override
   Widget build(BuildContext context) {
@@ -21,14 +21,24 @@ class FruitsListGridWidget extends StatelessWidget {
       physics: const NeverScrollableScrollPhysics(),
       itemCount: products.length,
       gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-          mainAxisExtent: height *0.3,
+          mainAxisExtent: height * 0.3,
           crossAxisSpacing: width * 0.03,
           mainAxisSpacing: height * 0.02,
           crossAxisCount: 2),
       itemBuilder: (context, index) {
         // final  item = provider.itemList[index];
         /// Provider are apply in this Widget
-        return  GridCard(product: products[index]);
+        return GridCard(
+          product: products[index],
+          onTap: () => Get.to(() => DetailScreenModel(
+                product: products[index],
+              )),
+
+          // Trigger onTap for each individual product
+          // if (onTap != null) {
+          //   onTap!(); // Safely call onTap
+          // }
+        );
       },
     );
   }

@@ -1,6 +1,7 @@
 import 'package:deshi_mart_app/src/Utils/Constant/image_strings.dart';
 import 'package:deshi_mart_app/src/Widgets/custom_textform.dart';
 import 'package:deshi_mart_app/src/common/ui_helpers.dart';
+import 'package:deshi_mart_app/src/services/firebase/signin_func.dart';
 import 'package:deshi_mart_app/src/view/SelectLocation/select_location_screen.dart';
 import 'package:deshi_mart_app/src/view/SignUp/signup_screen.dart';
 import 'package:flutter/material.dart';
@@ -75,8 +76,7 @@ class LoginScreen extends StatelessWidget {
                   width: width,
                   child: ElevatedButton(
                     onPressed: () {
-                      Get.offAll(() => const SelectLocationScreen());
-                      // _signInUser(context);
+                      _signInUser(context);
                     },
                     style: ElevatedButton.styleFrom(
                       backgroundColor: const Color(0xff53B175),
@@ -114,5 +114,19 @@ class LoginScreen extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  void _signInUser(BuildContext context) {
+    final email = emailController.text;
+    final password = passController.text;
+
+    if (email.isEmpty || password.isEmpty) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(content: Text('Email and Password cannot be empty')),
+      );
+      return;
+    }
+
+    signIn(context, email, password);
   }
 }

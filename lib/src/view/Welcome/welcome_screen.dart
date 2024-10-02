@@ -1,6 +1,6 @@
 import 'package:deshi_mart_app/src/Utils/Constant/image_strings.dart';
 import 'package:deshi_mart_app/src/common/ui_helpers.dart';
-import 'package:deshi_mart_app/src/view/PhoneNo/PhoneLogin/phone_login_screen.dart';
+import 'package:deshi_mart_app/src/view/SelectLocation/select_location_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -134,7 +134,7 @@ class WelcomeScreen extends StatelessWidget {
                         width: width * 0.7,
                         child: ElevatedButton(
                             onPressed: () {
-                              Get.offAll(() => const PhoneLoginScreen());
+                              Get.offAll(() => const SelectLocationScreen());
                             },
                             style: ElevatedButton.styleFrom(
                                 backgroundColor: Colors.white,
