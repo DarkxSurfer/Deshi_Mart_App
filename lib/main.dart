@@ -3,6 +3,8 @@ import 'package:deshi_mart_app/src/Widgets/BottomNavigationMenu/bottom_navigatio
 import 'package:deshi_mart_app/src/common/Provider/provider_state.dart';
 import 'package:deshi_mart_app/src/services/Stripe%20Service/stripe_key.dart';
 import 'package:deshi_mart_app/src/services/auth/auth_service.dart';
+import 'package:deshi_mart_app/src/view/Admin/SideBarNavigation/sidebar_navigation.dart';
+import 'package:deshi_mart_app/src/view/Login/login_screen.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -12,7 +14,7 @@ import 'package:provider/provider.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  Stripe.publishableKey = publishKey;
+  // Stripe.publishableKey = publishKey;
 
   // Initialize Firebase
   try {
@@ -40,7 +42,7 @@ class MyApp extends StatelessWidget {
             create: (context) => AuthService(),
           )
         ],
-        child:  GetMaterialApp(
+        child: GetMaterialApp(
           theme: ThemeData(
             appBarTheme: const AppBarTheme(
               color: Colors.white, // Set theme color to match the AppBar
@@ -48,7 +50,7 @@ class MyApp extends StatelessWidget {
             ),
           ),
           debugShowCheckedModeBanner: false,
-          home:  BottomNavigationMenu(),
+          home: LoginScreen(),
         ));
   }
 }

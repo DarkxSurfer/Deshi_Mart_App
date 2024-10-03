@@ -1,5 +1,7 @@
-import 'package:deshi_mart_app/src/view/Admin/Dashboard/table.dart';
 import 'package:flutter/material.dart';
+
+import '../../../Models/Invoice/invoice_model.dart';
+import '../Category/category_screen.dart';
 
 class DashboardScreen extends StatefulWidget {
   const DashboardScreen({super.key});
@@ -11,32 +13,36 @@ class DashboardScreen extends StatefulWidget {
 class _DashboardScreenState extends State<DashboardScreen> {
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
+    return Scaffold(
       body: Row(
         children: [
           // Main Content
           Expanded(
             child: Padding(
-              padding: EdgeInsets.symmetric(vertical: 0, horizontal: 20),
+              padding: const EdgeInsets.symmetric(vertical: 0, horizontal: 20),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  DashboardHeader(),
-                  SizedBox(height: 20),
-                  Text(
+                  const DashboardHeader(),
+                  const SizedBox(height: 20),
+                  const Text(
                     "Dashboard Overview",
                     style: TextStyle(fontSize: 18, color: Colors.black),
                   ),
                   // Header Section with statistics
-                  HeaderSection(),
-                  SizedBox(height: 10),
-                  Text(
+                  const HeaderSection(),
+                  const SizedBox(height: 10),
+                  const Text(
                     "Recent Orders",
                     style: TextStyle(fontSize: 18, color: Colors.black),
                   ),
-                  SizedBox(height: 10),
-                  Expanded(child: InvoiceTable()),
-                  SizedBox(height: 20),
+                  const SizedBox(height: 10),
+                  Expanded(
+                      child: InvoiceTable(
+                    headers: tableHeaders,
+                    invoices: invoiceList,
+                  )),
+                  const SizedBox(height: 20),
                 ],
               ),
             ),
