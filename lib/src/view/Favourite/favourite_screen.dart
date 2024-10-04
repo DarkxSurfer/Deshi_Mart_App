@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:deshi_mart_app/src/common/Provider/provider_state.dart';
+import 'package:deshi_mart_app/src/Provider/provider_state.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
 import 'package:provider/provider.dart';
 import '../../Utils/Constant/colors.dart';
 import '../../Widgets/BottomNavigationMenu/bottom_navigation_menu.dart';
@@ -24,24 +23,24 @@ class FavouriteScreen extends StatelessWidget {
           children: [
             Center(
                 child: Padding(
-                  padding: EdgeInsets.symmetric(horizontal: width * 0.04),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      IconButton(
-                          onPressed: () {
-                            // Get.to(() => const BottomNavigationMenu());
-                            Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (_) => const BottomNavigationMenu()));
-                          },
-                          icon: const Icon(Icons.arrow_back_ios)),
-                      const Text('Favourite',
-                          style:
+              padding: EdgeInsets.symmetric(horizontal: width * 0.04),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  IconButton(
+                      onPressed: () {
+                        // Get.to(() => const BottomNavigationMenu());
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (_) => const BottomNavigationMenu()));
+                      },
+                      icon: const Icon(Icons.arrow_back_ios)),
+                  const Text('Favourite',
+                      style:
                           TextStyle(fontSize: 18, fontWeight: FontWeight.w500)),
-                      Consumer<FavouriteItem>(
-                          builder: (context, value, child) => Stack(
+                  Consumer<FavouriteItem>(
+                      builder: (context, value, child) => Stack(
                             children: [
                               Positioned(
                                   top: 15,
@@ -65,9 +64,9 @@ class FavouriteScreen extends StatelessWidget {
                                       size: 33)),
                             ],
                           )),
-                    ],
-                  ),
-                )),
+                ],
+              ),
+            )),
             Divider(color: Colors.grey.withOpacity(0.3)),
             SizedBox(height: height * 0.02),
 
@@ -79,5 +78,3 @@ class FavouriteScreen extends StatelessWidget {
     );
   }
 }
-
-

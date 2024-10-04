@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../../Widgets/CustomWidgetGridViewCard/grid_view_widgets.dart';
 import '../../Widgets/ProductTitle/product_title.dart';
-import '../../common/Provider/provider_state.dart';
+import '../../Provider/provider_state.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});

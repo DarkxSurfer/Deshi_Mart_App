@@ -1,6 +1,7 @@
+import 'package:deshi_mart_app/src/Provider/favorite_provider.dart';
 import 'package:deshi_mart_app/src/Utils/Constant/colors.dart';
 import 'package:deshi_mart_app/src/Widgets/CartScreenWidgets/counting_icon.dart';
-import 'package:deshi_mart_app/src/common/Provider/provider_state.dart';
+import 'package:deshi_mart_app/src/Provider/provider_state.dart';
 import 'package:deshi_mart_app/src/view/Home/Item%20Models/fruits_model_list.dart';
 import 'package:deshi_mart_app/src/view/cart/cart_screen.dart';
 import 'package:flutter/material.dart';
@@ -27,38 +28,35 @@ class DetailScreenModel extends StatelessWidget {
         // Remove any default shadow color
         backgroundColor: Colors.white,
 
-      leading: IconButton(
+        leading: IconButton(
             onPressed: () => Get.back(),
             icon: const Icon(Icons.arrow_back_ios_new_outlined)),
         actions: [
           Consumer<FavouriteItem>(
-              builder: (context, value, child)
-
-              => Stack(
-                children: [
-                  Positioned(
-                      top: 15,
-                      right: 0,
-                      child: CircleAvatar(
-                        radius: 8,
-                        backgroundColor: AColors.green,
-                        child: Text(
-                            value.selectedFavourites.length
-                                .toString(),
-                            style: const TextStyle(
-                                fontSize: 14,
-                                fontWeight: FontWeight.bold,
-                                color: Colors.white)),
-                      )),
-                  IconButton(
-                      onPressed: () {
-                        Get.to(()=> const CartScreen());
-                      },
-                      icon: const Icon(Icons.shopping_bag_outlined,
-                          size: 33)),
-                ],
-              )),
-          SizedBox(width: width*0.04),
+              builder: (context, value, child) => Stack(
+                    children: [
+                      Positioned(
+                          top: 15,
+                          right: 0,
+                          child: CircleAvatar(
+                            radius: 8,
+                            backgroundColor: AColors.green,
+                            child: Text(
+                                value.selectedFavourites.length.toString(),
+                                style: const TextStyle(
+                                    fontSize: 14,
+                                    fontWeight: FontWeight.bold,
+                                    color: Colors.white)),
+                          )),
+                      IconButton(
+                          onPressed: () {
+                            Get.to(() => const CartScreen());
+                          },
+                          icon: const Icon(Icons.shopping_bag_outlined,
+                              size: 33)),
+                    ],
+                  )),
+          SizedBox(width: width * 0.04),
         ],
       ),
       body: SingleChildScrollView(
@@ -66,17 +64,19 @@ class DetailScreenModel extends StatelessWidget {
           builder: (context, value, child) {
             return Column(
               children: [
-
                 /// Fix for Expanded widget usage
                 Container(
                   height: height * 0.35,
                   width: width,
-                  decoration:  BoxDecoration(
-                      color:  Colors.grey.withOpacity(0.2),
+                  decoration: BoxDecoration(
+                      color: Colors.grey.withOpacity(0.2),
                       // boxShadow: [BoxShadow(blurRadius: 0.2)],
-                      borderRadius: const BorderRadius.only(bottomLeft: Radius.circular(20),bottomRight: Radius.circular(20)),
-                      image: DecorationImage(image: AssetImage(product.productThumbNail),fit: BoxFit.cover)
-                  ),// Adjust height accordingly
+                      borderRadius: const BorderRadius.only(
+                          bottomLeft: Radius.circular(20),
+                          bottomRight: Radius.circular(20)),
+                      image: DecorationImage(
+                          image: AssetImage(product.productThumbNail),
+                          fit: BoxFit.cover)), // Adjust height accordingly
                 ),
                 Container(
                   color: Colors.white,
@@ -236,13 +236,12 @@ class DetailScreenModel extends StatelessWidget {
         ),
       ),
       bottomNavigationBar: Padding(
-        padding:  const EdgeInsets.all(20),
+        padding: const EdgeInsets.all(20),
         child: SizedBox(
           height: height * 0.06,
           width: width,
           child: ElevatedButton(
-            onPressed: () {
-            },
+            onPressed: () {},
             style: ElevatedButton.styleFrom(
               backgroundColor: const Color(0xff53B175),
               shape: RoundedRectangleBorder(
@@ -260,6 +259,5 @@ class DetailScreenModel extends StatelessWidget {
         ),
       ),
     );
-    }
   }
-
+}

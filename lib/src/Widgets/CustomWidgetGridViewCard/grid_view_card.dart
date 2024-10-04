@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import '../../Utils/Constant/colors.dart';
-import '../../common/Provider/provider_state.dart';
+import '../../Provider/provider_state.dart';
 import '../../view/Home/Item Models/fruits_model_list.dart';
 
 class GridCard extends StatelessWidget {
@@ -30,7 +30,7 @@ class GridCard extends StatelessWidget {
               children: [
                 /// under Card Image
                 Image(
-                    image: AssetImage(product.productThumbNail),
+                    image: NetworkImage(product.productThumbNail),
                     height: height * 0.09,
                     fit: BoxFit.cover),
 
@@ -48,7 +48,7 @@ class GridCard extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     /// card Price
-                    Text(product.unitPrice,
+                    Text("\$${product.unitPrice}",
                         style: const TextStyle(
                             fontWeight: FontWeight.w600, fontSize: 20)),
                     IconButton(

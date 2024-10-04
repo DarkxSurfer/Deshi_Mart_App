@@ -1,5 +1,6 @@
-import 'package:deshi_mart_app/src/view/Home/Item%20Models/fruits_model_list.dart';
 import 'package:flutter/material.dart';
+
+import '../view/Home/Item Models/fruits_model_list.dart';
 
 class FavouriteItem with ChangeNotifier {
   final List<ItemModel> _itemListOne = [
