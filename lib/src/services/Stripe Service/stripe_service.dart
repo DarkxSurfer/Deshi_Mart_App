@@ -1,5 +1,4 @@
-
-import 'package:deshi_mart_app/src/common/Provider/provider_state.dart';
+import 'package:deshi_mart_app/src/Provider/provider_state.dart';
 import 'package:deshi_mart_app/src/services/Stripe%20Service/stripe_key.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter_stripe/flutter_stripe.dart';
@@ -14,13 +13,13 @@ class StripeServices {
     FavouriteItem favouriteItem = FavouriteItem();
 
     try {
-      String? paymentIntentClientSecret = await _createPaymentIntent(20,'usd'); // Amount in dollars, currency in lowercase
+      String? paymentIntentClientSecret = await _createPaymentIntent(
+          20, 'usd'); // Amount in dollars, currency in lowercase
       if (paymentIntentClientSecret == null) return;
       await Stripe.instance.initPaymentSheet(
           paymentSheetParameters: SetupPaymentSheetParameters(
-            paymentIntentClientSecret: paymentIntentClientSecret,
-            merchantDisplayName: 'Anis Ur rehman'
-          ));
+              paymentIntentClientSecret: paymentIntentClientSecret,
+              merchantDisplayName: 'Anis Ur rehman'));
       await _processPayment();
     } catch (e) {
       print('Error during payment creation: $e');
@@ -43,15 +42,18 @@ class StripeServices {
         'https://api.stripe.com/v1/payment_intents', // Stripe endpoint
         data: data, // Send data as a Map
         options: Options(
-          contentType: Headers.formUrlEncodedContentType, // Correct content type
+          contentType:
+              Headers.formUrlEncodedContentType, // Correct content type
           headers: {
-            'Authorization': 'Bearer $secretKey', // Ensure this is your Stripe Secret Key
+            'Authorization':
+                'Bearer $secretKey', // Ensure this is your Stripe Secret Key
           },
         ),
       );
 
       if (response.data != null) {
-        return response.data['client_secret']; // Returning the payment intent ID
+        return response
+            .data['client_secret']; // Returning the payment intent ID
       }
       return null;
     } catch (e) {
@@ -65,12 +67,11 @@ class StripeServices {
   }
 
   /// Process Payment
-  Future<void> _processPayment() async{
-
-    try{
+  Future<void> _processPayment() async {
+    try {
       await Stripe.instance.presentPaymentSheet();
       await Stripe.instance.confirmPaymentSheetPayment();
-    }catch (e){
+    } catch (e) {
       print(e);
     }
   }

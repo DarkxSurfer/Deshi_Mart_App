@@ -4,7 +4,7 @@ import 'package:deshi_mart_app/src/view/cart/cart_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:provider/provider.dart';
-import '../../common/Provider/provider_state.dart';
+import '../../Provider/provider_state.dart';
 import '../../view/Favourite/favourite_screen.dart';
 import '../../view/Home/home_screen.dart';
 
@@ -23,7 +23,7 @@ class _MyAppState extends State<BottomNavigationMenu> {
     Container(color: Colors.blue),
     const CartScreen(),
     const FavouriteScreen(),
-    AccountScreen()
+    const AccountScreen()
   ];
 
   void onTabTapped(int index) {

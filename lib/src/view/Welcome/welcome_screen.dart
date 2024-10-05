@@ -1,7 +1,6 @@
 import 'package:deshi_mart_app/src/Utils/Constant/image_strings.dart';
 import 'package:deshi_mart_app/src/common/ui_helpers.dart';
 import 'package:deshi_mart_app/src/view/PhoneNo/PhoneLogin/phone_login_screen.dart';
-import 'package:deshi_mart_app/src/view/SelectLocation/select_location_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -20,12 +19,13 @@ class WelcomeScreen extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Padding(
-            padding: EdgeInsets.only(top: height *0.15,left: width *0.07,bottom: width *0.18),
+            padding: EdgeInsets.only(
+                top: height * 0.15, left: width * 0.07, bottom: width * 0.18),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Image.asset(logocolor),
-                SizedBox(height: height *0.02),
+                SizedBox(height: height * 0.02),
                 const Row(
                   children: [
                     Text(
@@ -128,8 +128,9 @@ class WelcomeScreen extends StatelessWidget {
                               color: Colors.white,
                               fontWeight: FontWeight.bold,
                               fontSize: 35)),
-                      Text("Get your grocery in as fast as\n                 "
-                                         "one hours",
+                      Text(
+                          "Get your grocery in as fast as\n                 "
+                          "one hours",
                           style: TextStyle(
                               fontSize: 20,
                               color: Colors.white.withOpacity(0.7),
@@ -146,9 +147,11 @@ class WelcomeScreen extends StatelessWidget {
                                   backgroundColor: Colors.white,
                                   shape: RoundedRectangleBorder(
                                       borderRadius: BorderRadius.circular(15))),
-                              child:  Text('Get Started',
+                              child: Text('Get Started',
                                   style: TextStyle(
-                                      color: AColors.green, fontSize: 20,fontWeight: FontWeight.w700))))
+                                      color: AColors.green,
+                                      fontSize: 20,
+                                      fontWeight: FontWeight.w700))))
                     ],
                   ),
                 ],

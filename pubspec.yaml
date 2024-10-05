@@ -21,8 +21,6 @@ version: 1.0.0+1
 environment:
   sdk: ">=3.4.3 <4.0.0"
 
-
-
 # Dependencies specify other packages that your package needs in order to work.
 # To automatically upgrade your package dependencies to the latest versions
 # consider running `flutter pub upgrade --major-versions`. Alternatively,
@@ -57,6 +55,7 @@ dependencies:
   # Stripe Payment Package
   flutter_stripe: ^11.1.0
   dio: ^5.7.0
+  js: ^0.6.4
 
 dev_dependencies:
   flutter_test:

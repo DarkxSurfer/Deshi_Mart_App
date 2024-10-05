@@ -1,4 +1,4 @@
-import 'package:deshi_mart_app/src/common/Provider/provider_state.dart';
+import 'package:deshi_mart_app/src/Provider/provider_state.dart';
 import 'package:deshi_mart_app/src/services/Stripe%20Service/stripe_service.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -77,15 +77,18 @@ class CartScreen extends StatelessWidget {
           return value.selectedFavourites.isNotEmpty
               ? Container(
                   margin: EdgeInsets.only(
-                      left: width * 0.12, bottom: height * 0.02,right: width*0.12),
+                      left: width * 0.12,
+                      bottom: height * 0.02,
+                      right: width * 0.12),
                   height: height * 0.06,
                   width: width * 0.05,
                   child: SizedBox(
-                    child: ElevatedButton (
-                        onPressed: ()  {
-                           StripeServices.instance.makePayment();
+                    child: ElevatedButton(
+                        onPressed: () {
+                          StripeServices.instance.makePayment();
                         },
-                        style: ElevatedButton.styleFrom(backgroundColor: AColors.green,
+                        style: ElevatedButton.styleFrom(
+                            backgroundColor: AColors.green,
                             shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(12))),
                         child: Text('Go to Checkout   ${value.getTotalPrice()}',

@@ -3,7 +3,6 @@ import 'package:deshi_mart_app/src/Utils/Constant/image_strings.dart';
 import 'package:deshi_mart_app/src/common/ui_helpers.dart';
 import 'package:deshi_mart_app/src/services/firebase/signin_func.dart';
 import 'package:deshi_mart_app/src/view/Admin%20Login/admin_login.dart';
-import 'package:deshi_mart_app/src/view/Admin/Admin%20Home/admin_home_screen.dart';
 import 'package:deshi_mart_app/src/view/SignUp/signup_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -24,15 +23,16 @@ class LoginScreen extends StatelessWidget {
       child: Scaffold(
         body: SingleChildScrollView(
           child: Padding(
-            padding:  EdgeInsets.symmetric(vertical: height *0.15,horizontal: width*0.05),
+            padding: EdgeInsets.symmetric(
+                vertical: height * 0.15, horizontal: width * 0.05),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                Image.asset(carrotIcon,scale: 0.8),
-                SizedBox(height: height *0.07),
+                Image.asset(carrotIcon, scale: 0.8),
+                SizedBox(height: height * 0.07),
                 // verticalSpaceMassive,
                 Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     const Text(
                       'Login',
@@ -44,23 +44,32 @@ class LoginScreen extends StatelessWidget {
                     const Text('Enter your emails and password',
                         style: TextStyle(fontSize: 14, color: Colors.grey)),
                     verticalSpaceMedium,
-          
-                    const Text("Email", style: TextStyle(fontSize: 14, color: Colors.grey,fontWeight: FontWeight.w500)),
+
+                    const Text("Email",
+                        style: TextStyle(
+                            fontSize: 14,
+                            color: Colors.grey,
+                            fontWeight: FontWeight.w500)),
                     const SizedBox(height: 10),
                     CustomTextForm(
                       obscureValue: false,
                       controller: emailController,
                       prefixIcon: Icons.email_outlined,
                     ),
-                    SizedBox(height: height *0.03),
-                    const Text("Password", style: TextStyle(fontSize: 14, color: Colors.grey,fontWeight: FontWeight.w500)),
-                    const SizedBox(height: 10),                    CustomTextForm(
+                    SizedBox(height: height * 0.03),
+                    const Text("Password",
+                        style: TextStyle(
+                            fontSize: 14,
+                            color: Colors.grey,
+                            fontWeight: FontWeight.w500)),
+                    const SizedBox(height: 10),
+                    CustomTextForm(
                       obscureValue: true,
                       controller: passController,
                       prefixIcon: Icons.lock_outline,
                     ),
                     verticalSpaceSmall,
-          
+
                     // Forgot Password Link
                     Row(
                       mainAxisAlignment: MainAxisAlignment.end,
@@ -75,7 +84,7 @@ class LoginScreen extends StatelessWidget {
                       ],
                     ),
                     verticalSpaceSmall,
-          
+
                     SizedBox(
                       height: height * 0.06,
                       width: width,
@@ -99,27 +108,35 @@ class LoginScreen extends StatelessWidget {
                       ),
                     ),
                     verticalSpaceSmall,
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          const Text("Don't have an account?",
-                              style: TextStyle(fontWeight: FontWeight.w600)),
-                          TextButton(
-                            onPressed: () {
-                              Get.to(() => SignupScreen());
-                            },
-                            child:  Text('SignUp',style: TextStyle(color: AColors.green,fontWeight: FontWeight.w600)),
-                          ),
-                        ],
-                      ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        const Text("Don't have an account?",
+                            style: TextStyle(fontWeight: FontWeight.w600)),
+                        TextButton(
+                          onPressed: () {
+                            Get.to(() => SignupScreen());
+                          },
+                          child: Text('SignUp',
+                              style: TextStyle(
+                                  color: AColors.green,
+                                  fontWeight: FontWeight.w600)),
+                        ),
+                      ],
+                    ),
                     Column(
                       children: [
-                        TextButton(onPressed: (){
-                          Get.offAll(() =>  AdminLoginScreen());
-                        }, child: Text('Admin Login',style: TextStyle(fontSize: 18,color: AColors.green),)),
+                        TextButton(
+                            onPressed: () {
+                              Get.offAll(() => AdminLoginScreen());
+                            },
+                            child: Text(
+                              'Admin Login',
+                              style:
+                                  TextStyle(fontSize: 18, color: AColors.green),
+                            )),
                       ],
                     )
-
                   ],
                 )
               ],
