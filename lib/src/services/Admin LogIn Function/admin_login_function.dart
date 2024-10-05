@@ -13,39 +13,49 @@ class AdminAuth {
     try {
       // Show Progress Indicator
       showDialog(
-          context: context,
-          builder: (context) {
-            return  AlertDialog(
-              title: Center(
-                child: CircularProgressIndicator(color: AColors.green),
+        context: context,
+        builder: (context) {
+          /// weighting prognosticator
+          return AlertDialog(
+            title: Center(
+              child: TweenAnimationBuilder(
+                tween: Tween<double>(begin: 0, end: 1), // Animation from 0 to 100%
+                duration: const Duration(seconds: 2), // 1.5 seconds
+                builder: (context, value, child) {
+                  return CircularProgressIndicator(
+                    // value: value, // Sets progress value
+                    color: AColors.green
+                  );
+                },
               ),
-            );
-          });
+            ),
+          );
+        },
+      );
 
-      // Retrieve the admin document only once
+      /// Retrieve the admin document only once
       var documentSnapshot = await firestore.collection('admin').doc('adminLogin').get();
 
       if (documentSnapshot.exists) {
-        // Check if email and password match
+        /// Check if email and password match
         if (documentSnapshot.data()?['adminEmail'] == adminEmail.text &&
             documentSnapshot.data()?['adminPassword'] == adminPassword.text) {
-          // Dismiss the dialog
-          Navigator.of(context).pop();
-
+          /// Dismiss the dialog
+          Get.back();
           // Navigate to Admin Home Screen using GetX
           Get.offAll(() => const AdminHomeScreen());
         } else {
-          Navigator.of(context).pop();
+          Get.back();
           Get.snackbar('Login Failed', 'Incorrect email or password',
               snackPosition: SnackPosition.BOTTOM, backgroundColor: Colors.deepOrange);
         }
       } else {
-        Navigator.of(context).pop();
+        Get.back();
         Get.snackbar('Error', 'Admin record not found',
             snackPosition: SnackPosition.BOTTOM, backgroundColor: Colors.deepOrange);
       }
     } catch (e) {
-      Navigator.of(context).pop(); // Dismiss dialog if there's an error
+      Get.back(); /// Dismiss dialog if there's an error
       Get.snackbar('Error', e.toString(),
           snackPosition: SnackPosition.BOTTOM, backgroundColor: Colors.deepOrange);
     }

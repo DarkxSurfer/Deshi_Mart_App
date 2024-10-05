@@ -1,8 +1,6 @@
 import 'package:deshi_mart_app/src/view/Login/login_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
-
 import '../../Utils/Constant/colors.dart';
 import '../../Utils/Constant/image_strings.dart';
 import '../../common/ui_helpers.dart';
