@@ -1,7 +1,11 @@
 import 'package:deshi_mart_app/src/Utils/Constant/image_strings.dart';
 import 'package:deshi_mart_app/src/common/ui_helpers.dart';
+import 'package:deshi_mart_app/src/view/Admin/AllOrders/all_orders_screen.dart';
+import 'package:deshi_mart_app/src/view/Admin/Category/category_screen.dart';
+import 'package:deshi_mart_app/src/view/Admin/Coupon/coupon_screen.dart';
 import 'package:deshi_mart_app/src/view/Admin/Dashboard/dashboard_screen.dart';
 import 'package:deshi_mart_app/src/view/Admin/Products/products_screen.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 class Sidebar extends StatefulWidget {
@@ -18,7 +22,9 @@ class _SidebarState extends State<Sidebar> {
   final List<Widget> _pages = [
     const DashboardScreen(),
     const AdminProductScreen(),
-    const Center(child: Text('Category Page', style: TextStyle(fontSize: 24))),
+    const CategoryScreen(),
+    const CouponScreen(),
+    const AllOrdersScreen(),
     const Center(child: Text('Settings Page', style: TextStyle(fontSize: 24))),
   ];
 
@@ -103,11 +109,27 @@ class _SidebarState extends State<Sidebar> {
                   ),
                   const SizedBox(height: 20),
                   SidebarItem(
-                    icon: Icons.settings,
-                    label: 'Settings',
+                    icon: Icons.discount,
+                    label: 'Coupon Code',
                     index: 3,
                     isSelected: _selectedIndex == 3, // Check if selected
                     onTap: () => _onItemTapped(3), // Switch to Settings
+                  ),
+                  const SizedBox(height: 20),
+                  SidebarItem(
+                    icon: Icons.receipt_long,
+                    label: 'Orders',
+                    index: 4,
+                    isSelected: _selectedIndex == 4, // Check if selected
+                    onTap: () => _onItemTapped(4), // Switch to Settings
+                  ),
+                  const SizedBox(height: 20),
+                  SidebarItem(
+                    icon: Icons.settings,
+                    label: 'Settings',
+                    index: 5,
+                    isSelected: _selectedIndex == 5, // Check if selected
+                    onTap: () => _onItemTapped(5), // Switch to Settings
                   ),
                 ],
               ),

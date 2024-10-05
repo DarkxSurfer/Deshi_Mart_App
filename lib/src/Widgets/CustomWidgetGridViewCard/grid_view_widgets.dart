@@ -6,10 +6,9 @@ import '../../view/Home/Item Models/fruits_model_list.dart';
 import 'grid_view_card.dart';
 
 class FruitsListGridWidget extends StatelessWidget {
-  const FruitsListGridWidget({super.key, required this.products, this.onTap});
+  const FruitsListGridWidget({super.key, required this.products});
 
   final List<ItemModel> products;
-  final onTap;
 
   @override
   Widget build(BuildContext context) {
@@ -30,7 +29,7 @@ class FruitsListGridWidget extends StatelessWidget {
         /// Provider are apply in this Widget
         return GridCard(
           product: products[index],
-          onTap: () => Get.to(() => DetailScreenModel(
+          onPressed: () => Get.to(() => DetailScreenModel(
                 product: products[index],
               )),
 

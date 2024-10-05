@@ -40,17 +40,13 @@ class _SplashScreenState extends State<SplashScreen> {
                         fontSize: 16,
                         color: Colors.white,
                         fontWeight: FontWeight.bold)),
-                SizedBox(
-                  width: 20,
-                ),
-                SizedBox(
-                  width: 16,
-                  height: 16,
-                  child: CircularProgressIndicator(
-                    color: Colors.white,
-                    // strokeWidth: 6,
-                  ),
-                )
+                // SizedBox(
+                //   width: 20,
+                // ),
+                // CircularProgressIndicator(
+                //   color: Colors.white,
+                //   // strokeWidth: 6,
+                // )
               ],
             ),
           ],
