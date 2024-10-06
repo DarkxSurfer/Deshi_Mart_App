@@ -3,6 +3,7 @@ import 'package:deshi_mart_app/src/Provider/favorite_provider.dart';
 import 'package:deshi_mart_app/src/Provider/provider_state.dart';
 import 'package:deshi_mart_app/src/services/Stripe%20Service/stripe_key.dart';
 import 'package:deshi_mart_app/src/services/auth/auth_service.dart';
+import 'package:deshi_mart_app/src/view/Login/login_screen.dart';
 
 import 'package:deshi_mart_app/src/view/Splash/splash_screen.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -44,9 +45,9 @@ class MyApp extends StatelessWidget {
             create: (context) => AuthService(),
           )
         ],
-        child: const GetMaterialApp(
+        child: GetMaterialApp(
           debugShowCheckedModeBanner: false,
-          home: SplashScreen(),
+          home: LoginScreen(),
         ));
   }
 }
