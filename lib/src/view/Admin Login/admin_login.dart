@@ -1,7 +1,6 @@
 import 'package:deshi_mart_app/src/view/Login/login_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-
 import '../../Utils/Constant/colors.dart';
 import '../../Utils/Constant/image_strings.dart';
 import '../../common/ui_helpers.dart';
@@ -19,18 +18,17 @@ class AdminLoginScreen extends StatelessWidget {
     final width = MediaQuery.of(context).size.width;
     final theme = Theme.of(context);
     return GestureDetector(
-      onTap: () => FocusScope.of(context).unfocus(),
+      onTap: ()=> FocusScope.of(context).unfocus(),
       child: Scaffold(
         body: SingleChildScrollView(
           child: Padding(
-            padding: EdgeInsets.symmetric(
-                vertical: height * 0.18, horizontal: width * 0.05),
+            padding:  EdgeInsets.symmetric(vertical: height *0.18,horizontal: width*0.05),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Center(child: Image.asset(carrotIcon, scale: 0.5)),
-                SizedBox(height: height * 0.07),
-
+                Center(child: Image.asset(carrotIcon,scale: 0.5)),
+                SizedBox(height: height *0.07),
+          
                 const Text(
                   'Admin Login',
                   style: TextStyle(
@@ -42,14 +40,8 @@ class AdminLoginScreen extends StatelessWidget {
                     style: TextStyle(fontSize: 14, color: Colors.grey)),
                 verticalSpaceMedium,
 
-                const Text("Email",
-                    style: TextStyle(
-                        fontSize: 14,
-                        color: Colors.grey,
-                        fontWeight: FontWeight.w500)),
-                SizedBox(height: height * 0.01),
-
-                /// Admin Email
+                const Text("Email", style: TextStyle(fontSize: 14, color: Colors.grey,fontWeight: FontWeight.w500)),
+                SizedBox(height: height *0.01),                /// Admin Email
                 TextFormField(
                   controller: adminAuth.adminEmail,
                   style: TextStyle(color: theme.primaryColor),
@@ -59,22 +51,18 @@ class AdminLoginScreen extends StatelessWidget {
                     border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(15),
                         borderSide: const BorderSide(color: Colors.grey)),
-                    enabledBorder: OutlineInputBorder(
+                    enabledBorder:  OutlineInputBorder(
                       borderRadius: BorderRadius.circular(12),
-                      borderSide:
-                          BorderSide(color: Colors.grey.withOpacity(0.5)),
+                      borderSide:  BorderSide(color: Colors.grey.withOpacity(0.5)),
                     ),
                   ),
+          
                 ),
-                SizedBox(height: height * 0.03),
+                SizedBox(height: height *0.03),
 
-                const Text("Password",
-                    style: TextStyle(
-                        fontSize: 14,
-                        color: Colors.grey,
-                        fontWeight: FontWeight.w500)),
-                SizedBox(height: height * 0.01),
 
+                const Text("Password", style: TextStyle(fontSize: 14, color: Colors.grey,fontWeight: FontWeight.w500)),
+                SizedBox(height: height *0.01),
                 /// Admin Password
                 TextFormField(
                   controller: adminAuth.adminPassword,
@@ -85,16 +73,17 @@ class AdminLoginScreen extends StatelessWidget {
                     border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(15),
                         borderSide: const BorderSide(color: Colors.grey)),
-                    enabledBorder: OutlineInputBorder(
+                    enabledBorder:  OutlineInputBorder(
                       borderRadius: BorderRadius.circular(12),
-                      borderSide:
-                          BorderSide(color: Colors.grey.withOpacity(0.5)),
+                      borderSide:  BorderSide(color: Colors.grey.withOpacity(0.5)),
                     ),
                   ),
+          
                 ),
 
+          
                 const SizedBox(height: 16.0),
-
+          
                 const SizedBox(height: 32.0),
                 SizedBox(
                   height: height * 0.06,
@@ -105,15 +94,11 @@ class AdminLoginScreen extends StatelessWidget {
                     },
                     style: ElevatedButton.styleFrom(
                       backgroundColor: const Color(0xff53B175),
-                      shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(15)),
+                      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
                     ),
                     child: const Text(
                       'Log In',
-                      style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 20,
-                          fontWeight: FontWeight.w500),
+                      style: TextStyle(color: Colors.white,fontSize: 20,fontWeight: FontWeight.w500),
                     ),
                   ),
                 ),
@@ -127,13 +112,12 @@ class AdminLoginScreen extends StatelessWidget {
                       onPressed: () {
                         Get.to(() => LoginScreen());
                       },
-                      child: Text('Sign In',
-                          style: TextStyle(
-                              color: AColors.green,
-                              fontWeight: FontWeight.w600)),
+                      child:  Text('Sign In',style: TextStyle(color: AColors.green,fontWeight: FontWeight.w600)),
                     ),
                   ],
                 ),
+
+
               ],
             ),
           ),
