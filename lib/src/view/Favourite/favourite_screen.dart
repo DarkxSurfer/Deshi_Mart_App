@@ -1,3 +1,4 @@
+import 'package:deshi_mart_app/src/Models/Detail/detail_screen_model.dart';
 import 'package:deshi_mart_app/src/Provider/provider_state.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -110,9 +111,7 @@ class FavouriteScreen extends StatelessWidget {
                       return GridCard(
                         product: product,
                         onPressed: () {
-                          // Handle product tap, e.g., navigate to product details
-                          print("Tapped on ${product.productName}");
-                          // Add navigation logic to product details page here
+                          Get.to(() => DetailScreenModel(product: product));
                         },
                       );
                     },

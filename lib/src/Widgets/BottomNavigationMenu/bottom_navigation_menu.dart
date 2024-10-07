@@ -1,6 +1,7 @@
 import 'package:deshi_mart_app/src/Utils/Constant/colors.dart';
 import 'package:deshi_mart_app/src/view/AccountScreen/account_screen.dart';
 import 'package:deshi_mart_app/src/view/cart/cart_screen.dart';
+import 'package:deshi_mart_app/src/view/products/find_products_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:provider/provider.dart';
@@ -20,7 +21,7 @@ class _MyAppState extends State<BottomNavigationMenu> {
 
   final listChildren = [
     const HomeScreen(),
-    Container(color: Colors.blue),
+    const FindProductsScreen(),
     const CartScreen(),
     const FavouriteScreen(),
     const AccountScreen()

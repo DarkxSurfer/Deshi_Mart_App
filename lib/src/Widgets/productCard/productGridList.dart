@@ -1,5 +1,6 @@
 import 'package:deshi_mart_app/src/Widgets/productCard/categoryModel.dart';
 import 'package:deshi_mart_app/src/Widgets/productCard/productGridCard.dart';
+import 'package:deshi_mart_app/src/view/AllProducts/all_product_screen.dart';
 import 'package:deshi_mart_app/src/view/products/beverage_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -7,6 +8,7 @@ import 'package:get/get.dart';
 class Productgridlist extends StatelessWidget {
   final List<CategoryModel> categories = [
     CategoryModel(
+      screen: const AllProductScreen(),
       imageAsset: 'assets/images/f1.png',
       color: const Color(0xff53b175).withOpacity(0.1),
       borderColor: const Color(0xff53b175).withOpacity(0.7),
@@ -57,7 +59,7 @@ class Productgridlist extends StatelessWidget {
           if (index < categories.length) {
             return Productgridcard(
               categorymodel: categories[index],
-              // onTap: () => Get.to(() => const BeverageScreen()),
+              onTap: () => Get.to(() => const AllProductScreen()),
             );
           } else {
             return const SizedBox

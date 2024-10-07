@@ -19,7 +19,7 @@ class Productgridcard extends StatelessWidget {
     return InkWell(
         onTap: () {
           Navigator.push(context,
-              MaterialPageRoute(builder: (context) => categorymodel.screen));
+              MaterialPageRoute(builder: (context) => categorymodel.screen!));
         },
         child: Container(
           padding: EdgeInsets.only(top: height * 0.03, left: width * 0.03),
