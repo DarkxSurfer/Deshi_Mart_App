@@ -33,29 +33,42 @@ class DetailScreenModel extends StatelessWidget {
               icon: const Icon(Icons.arrow_back_ios_new_outlined)),
           actions: [
             Consumer<FavouriteItem>(
-                builder: (context, value, child) => Stack(
+              builder: (context, value, child) => value
+                      .selectedFavourites.isEmpty
+                  ? IconButton(
+                      onPressed: () {
+                        Get.to(() => const CartScreen());
+                      },
+                      icon: const Icon(Icons.shopping_bag_outlined, size: 30))
+                  : Stack(
+                      clipBehavior: Clip.none,
                       children: [
-                        Positioned(
-                            top: 15,
-                            right: 0,
-                            child: CircleAvatar(
-                              radius: 8,
-                              backgroundColor: AColors.green,
-                              child: Text(
-                                  value.selectedFavourites.length.toString(),
-                                  style: const TextStyle(
-                                      fontSize: 14,
-                                      fontWeight: FontWeight.bold,
-                                      color: Colors.white)),
-                            )),
                         IconButton(
-                            onPressed: () {
-                              Get.to(() => const CartScreen());
-                            },
-                            icon: const Icon(Icons.shopping_bag_outlined,
-                                size: 33)),
+                          onPressed: () {
+                            Get.to(() => const CartScreen());
+                          },
+                          icon:
+                              const Icon(Icons.shopping_bag_outlined, size: 30),
+                        ),
+                        Positioned(
+                          top: 1,
+                          right: 1,
+                          child: CircleAvatar(
+                            radius: 9,
+                            backgroundColor: AColors.green,
+                            child: Text(
+                              value.selectedFavourites.length.toString(),
+                              style: const TextStyle(
+                                fontSize: 13,
+                                fontWeight: FontWeight.bold,
+                                color: Colors.white,
+                              ),
+                            ),
+                          ),
+                        ),
                       ],
-                    )),
+                    ),
+            ),
             SizedBox(width: width * 0.04),
           ],
         ),

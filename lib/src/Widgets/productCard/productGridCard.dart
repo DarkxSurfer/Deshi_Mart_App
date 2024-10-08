@@ -1,6 +1,5 @@
 import 'package:deshi_mart_app/src/Widgets/productCard/categoryModel.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 
 class Productgridcard extends StatelessWidget {
   final onTap;

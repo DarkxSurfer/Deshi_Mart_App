@@ -1,7 +1,10 @@
+import 'package:deshi_mart_app/src/Provider/favorite_provider.dart';
 import 'package:deshi_mart_app/src/Provider/provider_state.dart';
 import 'package:deshi_mart_app/src/services/Stripe%20Service/stripe_key.dart';
 import 'package:dio/dio.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_stripe/flutter_stripe.dart';
+import 'package:provider/provider.dart';
 
 class StripeServices {
   StripeServices._();
@@ -9,44 +12,55 @@ class StripeServices {
   static final StripeServices instance = StripeServices._();
 
   /// Make Payment Function
-  Future<void> makePayment() async {
-    FavouriteItem favouriteItem = FavouriteItem();
-
+  Future<void> makePayment(BuildContext context) async {
     try {
-      String? paymentIntentClientSecret = await _createPaymentIntent(
-          20, 'usd'); // Amount in dollars, currency in lowercase
+      // Use Provider to get the total price
+      final provider = Provider.of<FavouriteItem>(context, listen: false);
+      String totalPriceStr =
+          provider.getTotalPrice(); // Assuming getTotalPrice returns String
+
+      // Convert the price from String to int
+      int totalPrice =
+          int.tryParse(totalPriceStr) ?? 0; // Safely parsing String to int
+
+      // Create a payment intent with the total price in cents
+      String? paymentIntentClientSecret =
+          await _createPaymentIntent(totalPrice, 'usd');
       if (paymentIntentClientSecret == null) return;
+
+      // Initialize the payment sheet
       await Stripe.instance.initPaymentSheet(
-          paymentSheetParameters: SetupPaymentSheetParameters(
-              paymentIntentClientSecret: paymentIntentClientSecret,
-              merchantDisplayName: 'Anis Ur rehman'));
+        paymentSheetParameters: SetupPaymentSheetParameters(
+          paymentIntentClientSecret: paymentIntentClientSecret,
+          merchantDisplayName: 'Anis Ur Rehman',
+        ),
+      );
+
+      // Present the payment sheet to the user
       await _processPayment();
     } catch (e) {
       print('Error during payment creation: $e');
     }
   }
 
-  /// crete Payment intent
+  /// Create Payment Intent
   Future<String?> _createPaymentIntent(int amount, String currency) async {
     try {
       final Dio dio = Dio();
 
-      // Prepare data as a map for FormUrlEncoded
       final data = {
-        'amount': _calculatorAmount(amount), // Amount should be in cents
+        'amount': _calculateAmount(amount), // Amount in cents
         'currency': currency,
-        'payment_method_types[]': 'card', // Add payment method type
+        'payment_method_types[]': 'card', // Payment method type
       };
 
       var response = await dio.post(
-        'https://api.stripe.com/v1/payment_intents', // Stripe endpoint
-        data: data, // Send data as a Map
+        'https://api.stripe.com/v1/payment_intents',
+        data: data,
         options: Options(
-          contentType:
-              Headers.formUrlEncodedContentType, // Correct content type
+          contentType: Headers.formUrlEncodedContentType,
           headers: {
-            'Authorization':
-                'Bearer $secretKey', // Ensure this is your Stripe Secret Key
+            'Authorization': 'Bearer $secretKey', // Use your Stripe Secret Key
           },
         ),
       );
@@ -72,13 +86,12 @@ class StripeServices {
       await Stripe.instance.presentPaymentSheet();
       await Stripe.instance.confirmPaymentSheetPayment();
     } catch (e) {
-      print(e);
+      print('Payment processing error: $e');
     }
   }
 
-  /// CalculatorAmount
-  String _calculatorAmount(int amount) {
-    final calculatedAmount = amount * 100; // Convert dollars to cents
-    return calculatedAmount.toString();
+  /// Calculate Amount (Convert dollars to cents)
+  int _calculateAmount(int amount) {
+    return amount * 100; // Convert dollars to cents
   }
 }

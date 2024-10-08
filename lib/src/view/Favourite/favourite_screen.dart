@@ -44,33 +44,43 @@ class FavouriteScreen extends StatelessWidget {
                           TextStyle(fontSize: 18, fontWeight: FontWeight.w500),
                     ),
                     Consumer<FavouriteItem>(
-                      builder: (context, value, child) => Stack(
-                        children: [
-                          Positioned(
-                            top: 15,
-                            right: 0,
-                            child: CircleAvatar(
-                              radius: 8,
-                              backgroundColor: AColors.green,
-                              child: Text(
-                                value.selectedFavourites.length.toString(),
-                                style: const TextStyle(
-                                  fontSize: 14,
-                                  fontWeight: FontWeight.bold,
-                                  color: Colors.white,
+                      builder: (context, value, child) => value
+                              .selectedFavourites.isEmpty
+                          ? IconButton(
+                              onPressed: () {
+                                Get.to(() => const CartScreen());
+                              },
+                              icon: const Icon(Icons.shopping_bag_outlined,
+                                  size: 30))
+                          : Stack(
+                              clipBehavior: Clip.none,
+                              children: [
+                                IconButton(
+                                  onPressed: () {
+                                    Get.to(() => const CartScreen());
+                                  },
+                                  icon: const Icon(Icons.shopping_bag_outlined,
+                                      size: 30),
                                 ),
-                              ),
+                                Positioned(
+                                  top: 1,
+                                  right: 1,
+                                  child: CircleAvatar(
+                                    radius: 9,
+                                    backgroundColor: AColors.green,
+                                    child: Text(
+                                      value.selectedFavourites.length
+                                          .toString(),
+                                      style: const TextStyle(
+                                        fontSize: 13,
+                                        fontWeight: FontWeight.bold,
+                                        color: Colors.white,
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              ],
                             ),
-                          ),
-                          IconButton(
-                            onPressed: () {
-                              Get.to(() => const CartScreen());
-                            },
-                            icon: const Icon(Icons.shopping_bag_outlined,
-                                size: 33),
-                          ),
-                        ],
-                      ),
                     ),
                   ],
                 ),
@@ -88,7 +98,7 @@ class FavouriteScreen extends StatelessWidget {
                       children: [
                         SizedBox(height: height * 0.33),
                         const Center(
-                            child: Text('Favourite Cart is Empty 🛒',
+                            child: Text('Favourites are Empty ',
                                 style: TextStyle(
                                     fontSize: 26,
                                     fontWeight: FontWeight.w400))),

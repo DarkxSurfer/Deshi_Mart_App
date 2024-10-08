@@ -21,75 +21,72 @@ class GridCard extends StatelessWidget {
         bool isFavourite =
             favouriteProvider.selectedFavourites.contains(product);
 
-        return Padding(
-          padding: EdgeInsets.symmetric(horizontal: width * 0.03),
-          child: GestureDetector(
-            onTap: onPressed,
-            child: Container(
-              padding: EdgeInsets.only(top: height * 0.03, left: width * 0.03),
-              height: height * 0.30,
-              width: width * 0.45,
-              decoration: BoxDecoration(
-                color: Colors.white,
-                borderRadius: BorderRadius.circular(12),
-                border: Border.all(color: Colors.grey.withOpacity(0.5)),
-              ),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  // Card Image
-                  Image(
-                    image: NetworkImage(product.productThumbNail),
-                    height: height * 0.09,
-                    fit: BoxFit.cover,
-                  ),
-                  SizedBox(height: height * 0.01),
+        return GestureDetector(
+          onTap: onPressed,
+          child: Container(
+            padding: EdgeInsets.only(top: height * 0.03, left: width * 0.03),
+            height: height * 0.30,
+            width: width * 0.45,
+            decoration: BoxDecoration(
+              color: Colors.white,
+              borderRadius: BorderRadius.circular(12),
+              border: Border.all(color: Colors.grey.withOpacity(0.5)),
+            ),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                // Card Image
+                Image(
+                  image: NetworkImage(product.productThumbNail),
+                  height: height * 0.09,
+                  fit: BoxFit.cover,
+                ),
+                SizedBox(height: height * 0.01),
 
-                  // Title
-                  Text(
-                    product.productName,
-                    style: const TextStyle(
-                        fontSize: 17, fontWeight: FontWeight.bold),
-                  ),
-                  const SizedBox(height: 3),
+                // Title
+                Text(
+                  product.productName,
+                  style: const TextStyle(
+                      fontSize: 17, fontWeight: FontWeight.bold),
+                ),
+                const SizedBox(height: 3),
 
-                  // Description
-                  Text(
-                    product.productDescription,
-                    style: TextStyle(
-                      fontSize: 15,
-                      color: AColors.textLight,
+                // Description
+                Text(
+                  product.productDescription,
+                  style: TextStyle(
+                    fontSize: 15,
+                    color: AColors.textLight,
+                  ),
+                ),
+                SizedBox(height: height * 0.03),
+
+                // Price and Heart Icon
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    // Card Price
+                    Text(
+                      product.unitPrice,
+                      style: const TextStyle(
+                        fontWeight: FontWeight.w600,
+                        fontSize: 20,
+                      ),
                     ),
-                  ),
-                  SizedBox(height: height * 0.03),
 
-                  // Price and Heart Icon
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      // Card Price
-                      Text(
-                        product.unitPrice,
-                        style: const TextStyle(
-                          fontWeight: FontWeight.w600,
-                          fontSize: 20,
-                        ),
+                    // Heart Icon
+                    IconButton(
+                      onPressed: () {
+                        favouriteProvider.favouriteSelected(product);
+                      },
+                      icon: Icon(
+                        isFavourite ? Icons.favorite : Icons.favorite_outline,
                       ),
-
-                      // Heart Icon
-                      IconButton(
-                        onPressed: () {
-                          favouriteProvider.favouriteSelected(product);
-                        },
-                        icon: Icon(
-                          isFavourite ? Icons.favorite : Icons.favorite_outline,
-                        ),
-                        color: isFavourite ? AColors.green : Colors.black,
-                      ),
-                    ],
-                  ),
-                ],
-              ),
+                      color: isFavourite ? AColors.green : Colors.black,
+                    ),
+                  ],
+                ),
+              ],
             ),
           ),
         );

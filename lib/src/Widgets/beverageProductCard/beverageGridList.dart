@@ -1,10 +1,6 @@
 import 'package:deshi_mart_app/src/Models/beveragesModel.dart/beveragesModel.dart';
 import 'package:deshi_mart_app/src/Widgets/BottomNavigationMenu/beverageProductCard/beverageCard.dart';
-import 'package:deshi_mart_app/src/Widgets/productCard/categoryModel.dart';
-import 'package:deshi_mart_app/src/Widgets/productCard/productGridCard.dart';
-import 'package:deshi_mart_app/src/view/products/beverage_screen.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 
 class BeverageGridList extends StatelessWidget {
   final List<BeveragesModel> beverage = [
