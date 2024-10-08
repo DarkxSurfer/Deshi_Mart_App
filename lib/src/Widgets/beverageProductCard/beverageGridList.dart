@@ -1,5 +1,5 @@
 import 'package:deshi_mart_app/src/Models/beveragesModel.dart/beveragesModel.dart';
-import 'package:deshi_mart_app/src/Widgets/BottomNavigationMenu/beverageProductCard/beverageCard.dart';
+import 'package:deshi_mart_app/src/Widgets/beverageProductCard/beverageCard.dart';
 import 'package:flutter/material.dart';
 
 class BeverageGridList extends StatelessWidget {
