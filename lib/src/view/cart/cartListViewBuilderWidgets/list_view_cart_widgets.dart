@@ -12,7 +12,6 @@ class CartListViewBuilderWidgets extends StatelessWidget {
   });
   @override
   Widget build(BuildContext context) {
-    final provider = Provider.of<FavouriteItem>(context, listen: false);
     // final theme = Theme.of(context);
     final height = MediaQuery.of(context).size.height;
     final width = MediaQuery.of(context).size.width;
@@ -35,7 +34,7 @@ class CartListViewBuilderWidgets extends StatelessWidget {
         } else {
           return Expanded(
             child: ListView.builder(
-              itemCount: provider.selectedFavourites.length,
+              itemCount: value.selectedFavourites.length,
               itemBuilder: (context, index) {
                 final item = value.selectedFavourites[index];
                 return Padding(

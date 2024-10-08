@@ -1,6 +1,7 @@
-import 'package:deshi_mart_app/src/Models/beveragesModel.dart/beveragesModel.dart';
 import 'package:deshi_mart_app/src/Widgets/beverageProductCard/beverageCard.dart';
 import 'package:flutter/material.dart';
+
+import '../../Models/beveragesModel.dart/beveragesModel.dart';
 
 class BeverageGridList extends StatelessWidget {
   final List<BeveragesModel> beverage = [
