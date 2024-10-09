@@ -15,6 +15,8 @@ class _AdminProductScreenState extends State<AdminProductScreen> {
   final TextEditingController _priceController = TextEditingController();
   final TextEditingController _descriptionController = TextEditingController();
   final TextEditingController _imageController = TextEditingController();
+  final TextEditingController _salePriceController = TextEditingController();
+  final TextEditingController _stockController = TextEditingController();
 
   // Firestore instance
   final FirebaseFirestore _firestore = FirebaseFirestore.instance;
@@ -25,16 +27,22 @@ class _AdminProductScreenState extends State<AdminProductScreen> {
     final double? price = double.tryParse(_priceController.text);
     final String description = _descriptionController.text;
     final String imageUrl = _imageController.text;
+    final double? salePrice = double.tryParse(_salePriceController.text);
+    final String stock = _stockController.text;
 
     if (name.isNotEmpty &&
         price != null &&
         description.isNotEmpty &&
-        imageUrl.isNotEmpty) {
+        imageUrl.isNotEmpty &&
+        stock.isNotEmpty &&
+        salePrice != null) {
       await _firestore.collection('products').add({
         'name': name,
         'price': price,
         'description': description,
         'image': imageUrl,
+        'stock': stock,
+        'salePrice': salePrice,
       }).then((_) {
         Navigator.of(context).pop(); // Close the dialog
         ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
@@ -70,6 +78,8 @@ class _AdminProductScreenState extends State<AdminProductScreen> {
                   priceController: _priceController,
                   descriptionController: _descriptionController,
                   imageController: _imageController,
+                  salePriceController: _salePriceController,
+                  stockController: _stockController,
                 ),
                 // Product Table Section
                 Expanded(
@@ -92,11 +102,11 @@ class _AdminProductScreenState extends State<AdminProductScreen> {
                               '', // Ensure image is a string
                           data['name']?.toString() ??
                               '', // Ensure name is a string
-                          'CASH', // Replace with actual payment method if needed
+                          '\$${(data['salePrice']?.toDouble() ?? 0).toString()}', // Replace with actual payment method if needed
                           '\$${(data['price']?.toDouble() ?? 0).toString()}', // Ensure price is formatted correctly
-                          DateTime.now()
+                          '${data['stock']}'
                               .toString(), // Placeholder for order time
-                          'Pending', // Placeholder for status
+                          'Selling', // Placeholder for status
                         ];
                       }).toList();
 
@@ -152,6 +162,9 @@ class HeaderSection extends StatelessWidget {
   final TextEditingController priceController;
   final TextEditingController descriptionController;
   final TextEditingController imageController;
+  final TextEditingController stockController;
+  final TextEditingController salePriceController;
+
   final Function onAddProduct;
 
   const HeaderSection({
@@ -160,6 +173,8 @@ class HeaderSection extends StatelessWidget {
     required this.priceController,
     required this.descriptionController,
     required this.imageController,
+    required this.stockController,
+    required this.salePriceController,
     required this.onAddProduct,
   });
 
@@ -215,6 +230,17 @@ class HeaderSection extends StatelessWidget {
                             decoration:
                                 const InputDecoration(labelText: 'Image URL'),
                           ),
+                          TextField(
+                            controller: salePriceController,
+                            decoration:
+                                const InputDecoration(labelText: 'Sale Price'),
+                            keyboardType: TextInputType.number,
+                          ),
+                          TextField(
+                            controller: stockController,
+                            decoration:
+                                const InputDecoration(labelText: 'Stock'),
+                          )
                         ],
                       ),
                     ),

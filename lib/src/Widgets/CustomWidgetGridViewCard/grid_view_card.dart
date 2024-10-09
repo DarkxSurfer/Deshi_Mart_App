@@ -37,7 +37,7 @@ class GridCard extends StatelessWidget {
               children: [
                 // Card Image
                 Image(
-                  image: NetworkImage(product.productThumbNail),
+                  image: AssetImage(product.productThumbNail),
                   height: height * 0.09,
                   fit: BoxFit.cover,
                 ),
