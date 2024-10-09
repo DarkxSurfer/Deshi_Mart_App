@@ -110,10 +110,10 @@ class _AdminProductScreenState extends State<AdminProductScreen> {
                       return CustomProductTable(
                         headers: const [
                           'IMAGE',
-                          'CUSTOMER NAME',
-                          'METHOD',
-                          'AMOUNT',
-                          'ORDER TIME',
+                          'PRODUCT NAME',
+                          'PRICE',
+                          'SALE PRICE',
+                          'STOCK',
                           'STATUS',
                           'ACTIONS'
                         ],
@@ -122,9 +122,13 @@ class _AdminProductScreenState extends State<AdminProductScreen> {
                             imagePaths, // Pass the image paths to the table
                         actionsBuilder: (index) => [
                           IconButton(
-                              icon: const Icon(Icons.print), onPressed: () {}),
+                              icon: const Icon(Icons.edit), onPressed: () {}),
                           IconButton(
-                              icon: const Icon(Icons.search), onPressed: () {}),
+                              icon: const Icon(
+                                Icons.delete,
+                                color: Colors.red,
+                              ),
+                              onPressed: () {}),
                         ],
                         onAllSelected: (isSelected) {
                           // Handle selection logic here

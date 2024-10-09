@@ -1,5 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:deshi_mart_app/src/Models/Detail/detail_screen_model.dart';
 import 'package:deshi_mart_app/src/Widgets/CustomWidgetGridViewCard/grid_view_card.dart';
+import 'package:deshi_mart_app/src/Widgets/CustomWidgetGridViewCard/grid_view_card_admin.dart';
 import 'package:deshi_mart_app/src/view/Admin/SideBarNavigation/sidebar_navigation.dart';
 import 'package:deshi_mart_app/src/view/Home/Item%20Models/fruits_model_list.dart';
 import 'package:flutter/material.dart';
@@ -12,6 +14,8 @@ class AllProductScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        title: const Text('Fruits And Vegitables'),
+        centerTitle: true,
         actions: [
           ElevatedButton(
               onPressed: () {
@@ -51,11 +55,13 @@ class AllProductScreen extends StatelessWidget {
                 // Convert Firestore document to ItemModel
                 var product = ItemModel.fromFirestore(productDoc);
 
-                return GridCard(
+                return GridCardAdmin(
                   product: product,
                   onPressed: () {
                     // Handle product tap, e.g., navigate to product details
-                    print("Tapped on ${product.productName}");
+                    Get.to(DetailScreenModel(
+                      product: product,
+                    ));
                   },
                 );
               },
